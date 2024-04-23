@@ -1,0 +1,43 @@
+<mat-card style="width: 400px">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ inputData.task.title }}</mat-card-title>
+      <mat-card-subtitle
+        >Assignee: {{ inputData.task.assignee }}
+        <mat-divider></mat-divider>
+        <br />
+        Status: {{ inputData.task.status }}
+        <mat-divider></mat-divider>
+        <br />
+      </mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ inputData.task.description }}</p>
+  </mat-card-content>
+  <br />
+  <mat-card-content>
+    <p>Due Date: {{ inputData.task.dueDate }}</p>
+  </mat-card-content>
+  <mat-card-footer
+    ><mat-card-actions>
+      <button
+        mat-dialog-close
+        mat-stroked-button
+        mat-raised-button
+        (click)="closeDialog()"
+      >
+        CLOSE
+      </button>
+      <button
+        mat-stroked-button
+        mat-raised-button
+        [routerLink]="['task/edit', inputData.task.id]"
+        (click)="closeDialog()"
+      >
+        EDIT
+      </button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>

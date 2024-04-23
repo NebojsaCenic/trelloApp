@@ -1,0 +1,35 @@
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.mat-grid-tile-content {
+  padding: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+responsive-three-column-grid {
+  display: block;
+  text-align: center;
+}
+
+/* columns */
+.responsive-three-column-grid > * {
+  padding: 1rem;
+}
+
+/* tablet breakpoint */
+@media (min-width: 768px) {
+  .responsive-three-column-grid {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.card {
+  padding-bottom: 2em;
+}

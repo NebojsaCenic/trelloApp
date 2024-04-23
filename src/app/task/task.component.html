@@ -1,0 +1,28 @@
+<mat-card style="width: 400px" role="region">
+  <mat-card-header>
+    <mat-card-title-group>
+      <!-- <mat-card-title [routerLink]="['/task', task.id]" (click)="openDialog()">{{
+        task.title
+      }}</mat-card-title> -->
+      <mat-card-title (click)="openDialog()">{{ task.title }}</mat-card-title>
+      <mat-card-subtitle
+        >Assignee: {{ task.assignee }}
+        <mat-divider></mat-divider>
+        <br />
+        Status: <mat-label>{{ task.status }}</mat-label>
+        <mat-divider></mat-divider>
+        <br/>
+      </mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ task.description }}</p>
+  </mat-card-content>
+
+  <mat-card-footer
+    ><mat-card-content>
+      Due date: <mat-label>{{ task.dueDate }}</mat-label></mat-card-content
+    ></mat-card-footer
+  >
+</mat-card>

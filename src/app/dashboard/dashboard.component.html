@@ -1,0 +1,20 @@
+<div class="responsive-three-column-grid">
+  <div>
+    <h2>To do</h2>
+    @for(task of toDoTasks; track task) {
+    <div class="card"><app-task [task]="task"></app-task></div>
+    }
+  </div>
+  <div>
+    <h2>In progress</h2>
+    @for(task of inProcessTasks; track task) {
+    <div class="card"><app-task [task]="task"></app-task></div>
+    }
+  </div>
+  <div>
+    <h2>Done</h2>
+    @for(task of doneTasks; track task) {
+    <div class="card"><app-task [task]="task"></app-task></div>
+    }
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<mat-card class="card">
+  <mat-card-header>
+    <h1>Create new task</h1>
+  </mat-card-header>
+  <br />
+  <mat-form-field>
+    <mat-label>Title:</mat-label>
+    <input matInput value="{{ task.title }}" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Assignee:</mat-label>
+    <input matInput value="{{ task.assignee }}" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status:</mat-label>
+    <mat-select>
+      @for (status of statuses; track status) {
+      <mat-option [value]="task.status">{{ status }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput value="{{ task.description }}" required></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Due date:</mat-label>
+    <input matInput value="{{ task.dueDate }}" required />
+  </mat-form-field>
+
+  <div>
+    <button mat-button>Cancel</button>
+    <button mat-button cdkFocusInitial>Save</button>
+  </div>
+</mat-card>

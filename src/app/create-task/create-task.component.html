@@ -1,0 +1,35 @@
+<!-- <h2 mat-dialog-title>Edit Task</h2> -->
+
+<mat-card class="card">
+  <mat-card-header>
+    <h1>Create new task</h1>
+  </mat-card-header>
+  <br />
+  <mat-label>Task Title:</mat-label>
+  <mat-form-field>
+    <input matInput placeholder="Title" />
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <input matInput placeholder="Assignee" />
+  </mat-form-field> -->
+  <mat-form-field>
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" required />
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Description" required></textarea>
+  </mat-form-field>
+
+  <mat-card-actions>
+    <mat-card-footer>
+    <button mat-stroked-button mat-raised-button>CANCEL</button>
+    <button mat-stroked-button mat-raised-button>
+      SAVE
+    </button>
+    <button mat-stroked-button mat-raised-button (click)="backClicked()">
+      BACK
+    </button>
+  </mat-card-footer>
+  </mat-card-actions>
+</mat-card>
