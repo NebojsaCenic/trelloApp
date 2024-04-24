@@ -26,15 +26,16 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit {
-  fetchedData: Task[] = this.apiTasks.fetchedData;
-  toDoTasks: Task[] = this.apiTasks.toDoTasks;
-  inProcessTasks: Task[] = this.apiTasks.inProcessTasks;
-  doneTasks: Task[] = this.apiTasks.doneTasks;
+  fetchedData: Task[] = this.tasksService.fetchedData;
+  toDoTasks: Task[] = this.tasksService.toDoTasks;
+  inProcessTasks: Task[] = this.tasksService.inProcessTasks;
+  doneTasks: Task[] = this.tasksService.doneTasks;
 
-  constructor(public apiTasks: TasksService) {}
+  constructor(public tasksService: TasksService) {}
 
   ngOnInit(): void {
-    this.apiTasks.fetchData();
+    this.tasksService.fetchData();
+    console.log('dashboard Init')
   }
 
   // fetchDataFromApi(): void {

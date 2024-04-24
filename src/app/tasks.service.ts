@@ -13,6 +13,7 @@ export class TasksService {
   inProcessTasks: Task[] = [];
   doneTasks: Task[] = [];
   result: any;
+  index: any;
 
   private status: string[] = ['To do', 'In process', 'Done'];
   private tasksUrl: string =
@@ -40,10 +41,10 @@ export class TasksService {
     return this.result
   }
 
-  // deleteHero(id: number): Observable<unknown> {
-  //   const url = `${this.tasksUrl}/${id}`; // DELETE api/heroes/42
-  //   return this.http.delete(url, httpOptions)
-  // }
+  deleteTask(id: string): void {
+     this.index = this.fetchedData.findIndex(task => task.id === id);
+     this.fetchedData.splice(this.index, 1);
+  }
 
   getStatus(): string {
     const num = Math.floor(Math.random() * 3);

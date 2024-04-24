@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MatCardContent,
@@ -11,7 +11,6 @@ import {
   MatCardFooter,
   MatCardModule,
 } from '@angular/material/card';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -34,6 +33,9 @@ import { TasksService } from '../tasks.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
 import { MatDivider } from '@angular/material/divider';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-task',
@@ -60,6 +62,7 @@ import { MatDivider } from '@angular/material/divider';
     MatDialogTitle,
     MatDialogContent,
     MatInputModule,
+    MatDatepickerModule,
     FormsModule,
     HttpClientModule,
     RouterModule,
@@ -68,7 +71,7 @@ import { MatDivider } from '@angular/material/divider';
   templateUrl: './edit-task.component.html',
   styleUrl: './edit-task.component.css',
 })
-export class EditTaskComponent {
+export class EditTaskComponent implements OnInit {
   // @Input() task!: Task;
   statuses = ['To do', 'In process', 'Done'];
   task!: any;
@@ -77,7 +80,9 @@ export class EditTaskComponent {
 
   constructor(
     private dashboard: DashboardComponent,
-    private activatedRoute: ActivatedRoute // @Inject(MAT_DIALOG_DATA) public data: any
+    private activatedRoute: ActivatedRoute, // @Inject(MAT_DIALOG_DATA) public data: any
+    private tasksService: TasksService,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -96,5 +101,10 @@ export class EditTaskComponent {
       );
     // this.taskId = this.activatedRoute.snapshot.paramMap.get('id');
     // 
+  }
+
+  deleteTask(id: string) {
+    this.tasksService.deleteTask(id);
+    this.location.back();
   }
 }

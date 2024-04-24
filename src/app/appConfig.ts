@@ -5,6 +5,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,6 +15,9 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     HttpClientModule,
     { provide: MAT_DIALOG_DATA, useValue: {} },
-    DashboardComponent
+    DashboardComponent,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    provideNativeDateAdapter(),
   ],
 };
